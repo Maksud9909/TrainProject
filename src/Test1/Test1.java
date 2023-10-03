@@ -23,7 +23,7 @@ class NameCompare implements Comparator<Apartment> {
 
     @Override
     public int compare(Apartment apartment1,Apartment apartment2) {
-        return apartment1.name.compareTo(apartment2.name);
+        return apartment1.room - apartment2.room;
     }
 
 
