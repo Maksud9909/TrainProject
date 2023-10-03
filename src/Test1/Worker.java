@@ -1,6 +1,8 @@
 package Test1;
 
-public class Worker {
+import java.io.Serializable;
+
+public class Worker implements Serializable {
     String name;
     String position;
     int age;
