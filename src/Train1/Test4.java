@@ -1,13 +1,13 @@
 package Train1;
 
 import java.util.ArrayList;
-
+import java.util.function.Predicate;
 
 
 class StudentInfo{
-    void testStudents(ArrayList<Student> arrayList,StudentCheck2 studentCheck2){
+    void testStudents(ArrayList<Student> arrayList, Predicate<Student> predicate){
         for (Student st: arrayList){
-            if (studentCheck2.check(st)){
+            if (predicate.test(st)){
                 System.out.println(st);
             }
         }
@@ -26,11 +26,13 @@ public class Test4 {
         studentArrayList.add(student3);
         studentArrayList.add(student4);
         StudentInfo info = new StudentInfo();
-        info.testStudents( studentArrayList,  student->  student.sex=='f');
-        System.out.println("------------");
+
+        Predicate<Student> predicate1 = student -> student.sex == 'm';
+        Predicate<Student> predicate2 = student -> student.mark==4.7;
+        info.testStudents(studentArrayList,predicate1.and(predicate2));
 
 
-        info.testStudents(studentArrayList,new CheckOverMarking());
+
 
     }
 
